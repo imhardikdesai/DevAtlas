@@ -1,0 +1,11 @@
+node_modules/
+.next/
+dist/
+coverage/
+*.tgz
+.DS_Store
+next-env.d.ts
+.devatlas/
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo

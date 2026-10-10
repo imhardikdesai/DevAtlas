@@ -1,0 +1,58 @@
+{
+  "name": "devatlas",
+  "version": "1.0.0",
+  "description": "DevAtlas \u2014 a local-first developer workspace for organizing and inspecting multiple Git repositories.",
+  "keywords": [
+    "git",
+    "workspace",
+    "repositories",
+    "developer-tools",
+    "local-first",
+    "cli"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "bin": {
+    "devatlas": "bin/devatlas.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    ".next/standalone",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "next dev -p 4317",
+    "build": "npm run build:app && npm run build:cli",
+    "build:app": "next build && node scripts/postbuild.mjs",
+    "build:cli": "tsup",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run build && npm test",
+    "start": "node bin/devatlas.js start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "open": "11.0.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "24.10.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.0",
+    "tailwindcss": "4.3.3",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3"
+  }
+}
